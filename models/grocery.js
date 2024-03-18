@@ -57,4 +57,17 @@ module.exports = class Grocery {
 static fetchAll() {
     return db.execute('SELECT * FROM groceries');
   }
+
+static post(item) {
+    return db.execute('INSERT INTO groceries (item) VALUE (?)', [item]);
+}
+
+static update(id, item) {
+    return db.execute('UPDATE groceries SET item = ? WHERE id = ?', [item, id]);
+}
+
+static delete(id) {
+    return db.execute('DELETE FROM groceries WHERE id = ?', [id]);
+}
+
 };

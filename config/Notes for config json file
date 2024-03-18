@@ -1,0 +1,5 @@
+this is the configuration file for our mysql database
+this is just an json object
+Remember the name of the database you created on mysql workbench
+And the password as well
+host is for now localhost but when you want it to go on production you will change the host 

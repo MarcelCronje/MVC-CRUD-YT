@@ -7,8 +7,14 @@
 // gets express in our application
 const express = require('express');
 
+// gets bodyParser in our application
+const bodyParser = require('body-parser'); 
+
 // Route require
 const groceryRoutes = require('./routes/grocery');
+
+// to add the error controller file here
+const errorController = require('./controllers/error');
 
 // initialize our app and we can do that by using express as a method
 const app = express();
@@ -16,9 +22,48 @@ const app = express();
 // define the ports, if you were to deploy this to a paid sever they will have their own ports they are using
 const ports = process.env.PORT || 3000;
 
+// Return Data
+// const groceries = [
+//     {
+//         id: 1,
+//         item: 'milk'
+//     },
+//     {
+//         id: 2,
+//         item: 'bread'
+//     },
+// ];
+ 
+// this is to use bodyParser package in json format
+app.use(bodyParser.json());
+
+// to create headers
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 // route
 // this is a endpoint /groceries 
 app.use('/groceries', groceryRoutes);
+
+// GET method to get information from the sever
+// app.get('/', (req, res) => {
+//     res.send(groceries);
+// });
+
+// GET method to get information from the sever
+// app.get('/', (req, res) => {
+//     res.send('Hello!');
+// });
+
+// This is when page is not found error
+// can do this by calling our error controller
+app.use(errorController.get404);
+
+app.use(errorController.get500);
 
 // start the server we can listen
 // app.listen(3000,() => console.log(`listening on port 3000`));
