@@ -28,7 +28,7 @@
 // rather than creating a new instance of that object 
 
 // interact with the database
-
+const db = require('../util/database');
 
 module.exports = class Grocery {
     constructor(id, item) {
@@ -38,19 +38,23 @@ module.exports = class Grocery {
 
 // static way 
 // Hard Coded
-    static fetchAll() {
-        return [
-            {
-                id: 1,
-                item: 'milk',
-            },
-            {
-                id: 2,
-                item: 'bread',
-            },
-        ];
-    }
-};
+//     static fetchAll() {
+//         return [
+//             {
+//                 id: 1,
+//                 item: 'milk',
+//             },
+//             {
+//                 id: 2,
+//                 item: 'bread',
+//             },
+//         ];
+//     }
+// };
 
 // This execute the mysql querie
 // And it selects all
+static fetchAll() {
+    return db.execute('SELECT * FROM groceries');
+  }
+};
