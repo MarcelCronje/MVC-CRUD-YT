@@ -37,6 +37,7 @@ module.exports = class Grocery {
     }
 
 // static way 
+// Hard Coded
     static fetchAll() {
         return [
             {
