@@ -1,6 +1,12 @@
 // adds express in this file
 const express = require('express');
 
+
+// we need to have a controller in here 
+// but for now we can use a router from the express package
+// make a router
+
+// we imported this controller from controllers Grocery.js file
 const groceryController = require('../controllers/grocery');
 
 // calls the router in a variable

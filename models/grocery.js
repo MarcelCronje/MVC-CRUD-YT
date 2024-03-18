@@ -27,6 +27,8 @@
 // it will come in handy if we want to return data for all of the Groceries 
 // rather than creating a new instance of that object 
 
+// interact with the database
+
 
 module.exports = class Grocery {
     constructor(id, item) {
@@ -34,7 +36,7 @@ module.exports = class Grocery {
         this.item = item;
     }
 
-    // static way 
+// static way 
     static fetchAll() {
         return [
             {
@@ -48,3 +50,6 @@ module.exports = class Grocery {
         ];
     }
 };
+
+// This execute the mysql querie
+// And it selects all

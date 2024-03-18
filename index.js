@@ -7,6 +7,7 @@
 // gets express in our application
 const express = require('express');
 
+// Route require
 const groceryRoutes = require('./routes/grocery');
 
 // initialize our app and we can do that by using express as a method
