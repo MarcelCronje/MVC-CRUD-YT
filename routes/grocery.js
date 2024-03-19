@@ -16,10 +16,13 @@ const router = express.Router();
 // this is where we are going to do something if we het that endpoint 
 router.get('/', groceryController.getAllGroceries);
 
+// post request
 router.post('/', groceryController.postGrocery);
 
+// put request
 router.put('/', groceryController.putGrocery);
 
+// delete request
 router.delete('/:id', groceryController.deleteGrocery);
 
 // we will need to export this to index.js file
