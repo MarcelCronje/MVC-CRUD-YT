@@ -58,14 +58,17 @@ static fetchAll() {
     return db.execute('SELECT * FROM groceries');
   }
 
+// This posts a new item or creates a new item to the database  
 static post(item) {
     return db.execute('INSERT INTO groceries (item) VALUE (?)', [item]);
 }
 
+// This updates the current item on the database you just need to know the current items id
 static update(id, item) {
     return db.execute('UPDATE groceries SET item = ? WHERE id = ?', [item, id]);
 }
 
+// This deletes the current item on the database
 static delete(id) {
     return db.execute('DELETE FROM groceries WHERE id = ?', [id]);
 }
